@@ -8,11 +8,10 @@ import static io.restassured.RestAssured.given;
 @QuarkusTest
 public class ChatBotControllerTest {
 
-    @Test
-    public void shouldAcceptPostsOfNewMessages() {
-        given()
-          .when().post("/message")
-          .then().statusCode(204);
-    }
-
+  @Test
+  public void shouldAcceptPostsOfNewMessages() {
+    given()
+      .when().post("/message")
+      .then().statusCode(204);
+  }
 }

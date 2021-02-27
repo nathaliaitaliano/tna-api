@@ -5,7 +5,8 @@ import javax.ws.rs.Path;
 
 @Path("/message")
 public class ChatBotController {
-    @POST
-    public void process() {
-    }
+
+  @POST
+  public void process() {
+  }
 }
