@@ -43,7 +43,7 @@ public class ChatBotControllerTest {
   }
 
   @Test
-  public void shouldAnswerEmptyMessagesWithMessageDefault() {
+  public void shouldAnswerBlankMessagesWithSadFace() {
     given()
       .when()
         .contentType(ContentType.JSON)
