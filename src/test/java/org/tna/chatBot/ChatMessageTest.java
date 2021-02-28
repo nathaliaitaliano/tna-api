@@ -8,21 +8,21 @@ import static org.hamcrest.Matchers.equalTo;
 class ChatMessageTest {
 
   @Test
-  public void shouldBeEmptyIfContentIsNull() {
+  public void shouldNotBeBlankIfContentIsNull() {
     ChatMessage nullContentMessage = new ChatMessage();
-    assertThat(nullContentMessage.isEmpty(), equalTo(true));
+    assertThat(nullContentMessage.isBlank(), equalTo(false));
   }
 
   @Test
-  public void shouldBeEmptyIfContentIsAnEmptyString() {
+  public void shouldBeBlankIfContentIsAnEmptyString() {
     ChatMessage blankMessage = new ChatMessage("");
-    assertThat(blankMessage.isEmpty(), equalTo(true));
+    assertThat(blankMessage.isBlank(), equalTo(true));
   }
 
   @Test
-  public void shouldNotBeEmptyIfContentIsPresent() {
+  public void shouldNotBeBlankIfContentIsPresent() {
     ChatMessage message = new ChatMessage("hello");
-    assertThat(message.isEmpty(), equalTo(false));
+    assertThat(message.isBlank(), equalTo(false));
   }
 
   @Test

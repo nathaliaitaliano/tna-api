@@ -10,8 +10,8 @@ public class ChatMessage {
     this.content = content;
   }
 
-  public boolean isEmpty() {
-    return content == null || content.isBlank();
+  public boolean isBlank() {
+    return this.isValid() && content.isBlank();
   }
 
   public boolean isValid() {

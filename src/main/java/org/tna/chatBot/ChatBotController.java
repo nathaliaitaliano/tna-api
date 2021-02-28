@@ -17,7 +17,7 @@ public class ChatBotController {
     if (!message.isValid()) {
       return Response.status(Response.Status.BAD_REQUEST).build();
     }
-    String answer = message.isEmpty() ? ":(" : "You said: ".concat(message.content);
+    String answer = message.isBlank() ? ":(" : "You said: ".concat(message.content);
     return Response.ok(new ChatResponse(answer)).build();
   }
 }
