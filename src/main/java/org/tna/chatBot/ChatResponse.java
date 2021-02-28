@@ -1,6 +1,7 @@
 package org.tna.chatBot;
 
 public class ChatResponse {
+
   public String answer;
 
   ChatResponse(){}
