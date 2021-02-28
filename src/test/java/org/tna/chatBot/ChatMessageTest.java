@@ -24,4 +24,22 @@ class ChatMessageTest {
     ChatMessage emptyMessage = new ChatMessage("hello");
     assertThat(emptyMessage.isEmpty(), equalTo(false));
   }
+
+  @Test
+  public void shouldBeValidIfContentIsPresent() {
+    ChatMessage emptyMessage = new ChatMessage("hello");
+    assertThat(emptyMessage.isValid(), equalTo(true));
+  }
+
+  @Test
+  public void shouldBeValidIfContentIfBlank() {
+    ChatMessage emptyMessage = new ChatMessage("");
+    assertThat(emptyMessage.isValid(), equalTo(true));
+  }
+
+  @Test
+  public void shouldBeInvalidIfContentIsNull() {
+    ChatMessage emptyMessage = new ChatMessage(null);
+    assertThat(emptyMessage.isValid(), equalTo(false));
+  }
 }

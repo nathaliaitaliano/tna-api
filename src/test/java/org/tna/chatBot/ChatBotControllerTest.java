@@ -41,4 +41,17 @@ public class ChatBotControllerTest {
         .body("answer", is("You said: hello")).and()
         .contentType(ContentType.JSON);
   }
+
+  @Test
+  public void shouldAnswerEmptyMessagesWithMessageDefault() {
+    given()
+      .when()
+        .contentType(ContentType.JSON)
+        .body("{\"content\": \"\"}")
+        .post("/message")
+      .then()
+        .statusCode(200).and()
+        .body("answer", is(":(")).and()
+        .contentType(ContentType.JSON);
+  }
 }

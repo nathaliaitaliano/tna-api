@@ -14,10 +14,10 @@ public class ChatBotController {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   public Response process(ChatMessage message) {
-    if (message.isEmpty()) {
+    if (!message.isValid()) {
       return Response.status(Response.Status.BAD_REQUEST).build();
     }
-    String answer = "You said: ".concat(message.content);
+    String answer = message.isEmpty() ? ":(" : "You said: ".concat(message.content);
     return Response.ok(new ChatResponse(answer)).build();
   }
 }
