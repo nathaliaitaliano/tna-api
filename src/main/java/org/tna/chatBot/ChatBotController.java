@@ -12,6 +12,7 @@ public class ChatBotController {
     if (message.isEmpty()) {
       return Response.status(Response.Status.BAD_REQUEST).build();
     }
-    return Response.ok().build();
+    String answer = "You said: ".concat(message.content);
+    return Response.ok(new ChatResponse(answer)).build();
   }
 }
