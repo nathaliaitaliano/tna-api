@@ -9,4 +9,6 @@ public class ChatResponse {
   ChatResponse(String answer) {
     this.answer = answer;
   }
+
+  public final static ChatResponse SAD_MESSAGE = new ChatResponse(":(");
 }
