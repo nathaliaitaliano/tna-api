@@ -9,37 +9,37 @@ class ChatMessageTest {
 
   @Test
   public void shouldBeEmptyIfContentIsNull() {
-    ChatMessage emptyMessage = new ChatMessage();
-    assertThat(emptyMessage.isEmpty(), equalTo(true));
+    ChatMessage nullContentMessage = new ChatMessage();
+    assertThat(nullContentMessage.isEmpty(), equalTo(true));
   }
 
   @Test
   public void shouldBeEmptyIfContentIsAnEmptyString() {
-    ChatMessage emptyMessage = new ChatMessage("");
-    assertThat(emptyMessage.isEmpty(), equalTo(true));
+    ChatMessage blankMessage = new ChatMessage("");
+    assertThat(blankMessage.isEmpty(), equalTo(true));
   }
 
   @Test
   public void shouldNotBeEmptyIfContentIsPresent() {
-    ChatMessage emptyMessage = new ChatMessage("hello");
-    assertThat(emptyMessage.isEmpty(), equalTo(false));
+    ChatMessage message = new ChatMessage("hello");
+    assertThat(message.isEmpty(), equalTo(false));
   }
 
   @Test
   public void shouldBeValidIfContentIsPresent() {
-    ChatMessage emptyMessage = new ChatMessage("hello");
-    assertThat(emptyMessage.isValid(), equalTo(true));
+    ChatMessage message = new ChatMessage("hello");
+    assertThat(message.isValid(), equalTo(true));
   }
 
   @Test
   public void shouldBeValidIfContentIfBlank() {
-    ChatMessage emptyMessage = new ChatMessage("");
-    assertThat(emptyMessage.isValid(), equalTo(true));
+    ChatMessage blankMessage = new ChatMessage("");
+    assertThat(blankMessage.isValid(), equalTo(true));
   }
 
   @Test
   public void shouldBeInvalidIfContentIsNull() {
-    ChatMessage emptyMessage = new ChatMessage(null);
-    assertThat(emptyMessage.isValid(), equalTo(false));
+    ChatMessage nullContentMessage = new ChatMessage(null);
+    assertThat(nullContentMessage.isValid(), equalTo(false));
   }
 }
