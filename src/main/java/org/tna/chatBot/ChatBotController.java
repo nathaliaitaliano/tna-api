@@ -17,7 +17,8 @@ public class ChatBotController {
     if (!message.isValid()) {
       return Response.status(Response.Status.BAD_REQUEST).build();
     }
-    ChatResponse response = message.isBlank() ? ChatResponse.SAD_MESSAGE : new ChatResponse("You said: ".concat(message.content));
+    var result = DiceRoller.roll();
+    ChatResponse response = message.isBlank() ? ChatResponse.SAD_MESSAGE : message.content.equals("d6") ? new ChatResponse(String.valueOf(result)) : new ChatResponse("You said: ".concat(message.content));
     return Response.ok(response).build();
   }
 }
