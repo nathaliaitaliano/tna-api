@@ -7,8 +7,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import static java.lang.Integer.parseInt;
-
 //send responses
 @Path("/message")
 public class ChatBotController {
@@ -24,8 +22,7 @@ public class ChatBotController {
       return Response.ok(ChatResponse.SAD_MESSAGE).build();
     }
     if(message.content.equals("d6") || message.content.equals("d20")) {
-      int sides = parseInt(message.content.substring(1));
-      return Response.ok(new ChatResponse(String.valueOf(DiceRoller.roll(sides)))).build();
+      return Response.ok(new ChatResponse(String.valueOf(DiceRoller.roll(message.content)))).build();
     }
     return Response.ok(new ChatResponse("You said: ".concat(message.content))).build();
   }
