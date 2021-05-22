@@ -1,5 +1,5 @@
 package org.tna.chatBot;
-
+//represents a message from the chat
 public class ChatMessage {
 
   public String content;
