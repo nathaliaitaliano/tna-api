@@ -12,13 +12,13 @@ public class DiceRollerTest {
 
   @Test
   public void shouldAnswerAD6Roll() {
-    int rollResult = DiceRoller.roll("d6");
+    int rollResult = DiceRoller.roll("d6", new RandomNumberGenerator());
     assertThat(rollResult, is(both(greaterThanOrEqualTo(1)).and(lessThanOrEqualTo(6))));
   }
 
   @Test
   public void shouldAnswer20Roll() {
-    int rollResult = DiceRoller.roll("d20");
+    int rollResult = DiceRoller.roll("d20", new RandomNumberGenerator());
     assertThat(rollResult, is(both(greaterThanOrEqualTo(1)).and(lessThanOrEqualTo(20))));
   }
 }
