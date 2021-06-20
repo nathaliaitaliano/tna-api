@@ -1,1 +1,1 @@
-web: java -jar target/quarkus-app/quarkus-run.jar --port $PORT
+web: java -Dquarkus.http.port=$PORT -jar target/tna-api-1.0.0-SNAPSHOT-runner.jar
