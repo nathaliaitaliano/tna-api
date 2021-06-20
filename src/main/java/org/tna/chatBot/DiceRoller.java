@@ -1,10 +1,22 @@
 package org.tna.chatBot;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+
 import static java.lang.Integer.parseInt;
 
+@ApplicationScoped
 public class DiceRoller {
-  public static int roll(String dice, RandomNumberGenerator randomNumberGenerator) {
+
+  @Inject
+  private RandomNumberGenerator randomNumberGenerator;
+
+  public DiceRoller(RandomNumberGenerator randomNumberGenerator) {
+    this.randomNumberGenerator = randomNumberGenerator;
+  }
+
+  public int roll(String dice) {
     int sides = parseInt(dice.substring(1));
-    return randomNumberGenerator.generate(sides);
+    return this.randomNumberGenerator.generate(sides);
   }
 }

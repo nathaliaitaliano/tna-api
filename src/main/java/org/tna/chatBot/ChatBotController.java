@@ -1,5 +1,6 @@
 package org.tna.chatBot;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -10,6 +11,13 @@ import javax.ws.rs.core.Response;
 //send responses
 @Path("/message")
 public class ChatBotController {
+
+  @Inject
+  private DiceRoller diceRoller;
+
+  public ChatBotController(DiceRoller diceRoller){
+    this.diceRoller = diceRoller;
+  }
 
   @POST
   @Produces(MediaType.APPLICATION_JSON)
@@ -22,7 +30,7 @@ public class ChatBotController {
       return Response.ok(ChatResponse.SAD_MESSAGE).build();
     }
     if(message.content.equals("d6") || message.content.equals("d20")) {
-      return Response.ok(new ChatResponse(String.valueOf(DiceRoller.roll(message.content, new RealRandomNumberGenerator())))).build();
+      return Response.ok(new ChatResponse(String.valueOf(this.diceRoller.roll(message.content)))).build();
     }
     return Response.ok(new ChatResponse("You said: ".concat(message.content))).build();
   }
