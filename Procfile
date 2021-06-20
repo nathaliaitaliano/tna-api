@@ -1,1 +1,1 @@
-web: java -jar target/tna-api-1.0.0-SNAPSHOT.jar --port $PORT
+web: java -jar target/target/quarkus-app/quarkus-run.jar --port $PORT
