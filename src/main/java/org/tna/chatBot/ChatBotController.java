@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 public class ChatBotController {
 
   @Inject
-  private DiceRoller diceRoller;
+  DiceRoller diceRoller;
 
   public ChatBotController(DiceRoller diceRoller){
     this.diceRoller = diceRoller;

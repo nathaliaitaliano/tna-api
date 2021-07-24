@@ -9,7 +9,7 @@ import static java.lang.Integer.parseInt;
 public class DiceRoller {
 
   @Inject
-  private RandomNumberGenerator randomNumberGenerator;
+  RandomNumberGenerator randomNumberGenerator;
 
   public DiceRoller(RandomNumberGenerator randomNumberGenerator) {
     this.randomNumberGenerator = randomNumberGenerator;
